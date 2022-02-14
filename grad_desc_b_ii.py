@@ -1,3 +1,4 @@
+from cProfile import label
 import sympy
 import matplotlib.pyplot as plt
 import numpy as np
@@ -42,10 +43,11 @@ for iteration in range(num_iterations):
     current_x = current_x - step
     current_y = f(current_x)
     
-plt.title("x and f(x)")
+plt.title("Progression of x and f(x)")
 plt.xlabel("x")
 plt.ylabel("f(x)")
-plt.plot(x_guesses, y_values)
+plt.scatter(x_guesses, y_values, c=range(num_iterations))
+plt.colorbar(label="Iteration")
 plt.show()
 
 plt.title("Change in x")

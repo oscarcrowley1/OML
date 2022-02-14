@@ -14,8 +14,8 @@ print(f,dfdx)
 half_width = 10
 x_range = np.linspace(-half_width, half_width)
 #delta = 0.01
-delta_range = [0.001, 0.01, 0.1, 1]
-#delta_range = np.logspace(0.001, 1, num=5)
+#delta_range = [0.001, 0.01, 0.1, 1]
+delta_range = np.logspace(-3, 0, num=4)
 
 for delta in delta_range:
 

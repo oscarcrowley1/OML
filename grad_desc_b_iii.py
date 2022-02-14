@@ -15,12 +15,12 @@ def f(x):
 def df(x):
     return quart_deriv.subs(x0, x)
 
-alpha_range = [0.0001, 0.001, 0.01, 0.1, 1]
-x_start_range = [0.01, 0.1, 1, 10, 100, 1000]
+alpha_range = [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]
+x_start_range = [0.001, 0.01, 0.1, 1, 10]
 
 for alpha in alpha_range:
     for x_start in x_start_range:
-        num_iterations = 100
+        num_iterations = 1000
 
         #alpha = 0.1
 
@@ -33,7 +33,7 @@ for alpha in alpha_range:
 
         for iteration in range(num_iterations):
             
-            if current_y > 10:
+            if current_y > 10000000:
                 break
             
             x_guesses.append(current_x)
@@ -63,10 +63,12 @@ for alpha in alpha_range:
         # #plt.show()
 
         
-        plt.plot(y_values, label=f"Current x_start {x_start}")
+        plt.plot(y_values, label=f"x_start: {x_start}")
         
-    plt.title("Change in f(x)")
+    plt.title(f"Change in f(x) (for alpha: {alpha})")
     plt.xlabel("Iterations")
     plt.ylabel("f(x)")
+    plt.yscale("log")
+    plt.ylim(top=100000)
     plt.legend()
     plt.show()
