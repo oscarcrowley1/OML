@@ -9,8 +9,9 @@ f=x0**4
 dfdx = sympy.diff(f,x0)
 print(f,dfdx)
 
-x_range = [0.01, 0.1, 1, 10, 100, 1000]
-#x_range = np.linspace()
+#x_range = [0.01, 0.1, 1, 10, 100, 1000]
+half_width = 0.1
+x_range = np.linspace(-half_width, half_width)
 delta = 0.01
 
 deriv_array = []
@@ -30,10 +31,14 @@ for x_test in x_range:
     
 fin_diff_array = np.array(fin_diff_array)
     
-#plt.plot(x_range, deriv_array)
-#plt.plot(x_range, fin_diff_array)
-plt.plot(x_range, deriv_array - fin_diff_array)
-plt.xscale("log")
+plt.plot(x_range, deriv_array, label="Derivative Value")
+plt.plot(x_range, fin_diff_array, label="Finite Difference Value")
+#plt.plot(x_range, deriv_array - fin_diff_array)
+#plt.xscale("log")
 #plt.yscale("log")
+plt.title("Comparing Derivative and Finite Difference at delta=0.01")
+plt.xlabel("x Value")
+plt.ylabel("Slope of f(x)")
+plt.legend()
 
 plt.show()
