@@ -20,7 +20,7 @@ x_start_range = [0.001, 0.01, 0.1, 1, 10]
 
 for alpha in alpha_range:
     for x_start in x_start_range:
-        num_iterations = 1000
+        num_iterations = 100000
 
         #alpha = 0.1
 
